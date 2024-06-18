@@ -19,7 +19,7 @@ export default defineComponent({
   },
   setup() {
 
-
+    const hi = ref('')
     return {}
   },
 });
