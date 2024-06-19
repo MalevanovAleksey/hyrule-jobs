@@ -1,37 +1,33 @@
 <template>
-  <div class="app">
-
-
-  </div>
-
+    <div class="app">
+        <Header />
+        <MainLayout />
+    </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, toRefs } from 'vue';
-import OrderTerm from './types/OrderTerm';
-import TodoList from './components/TodoList.vue'
-
+import { defineComponent, reactive, ref, toRefs } from "vue";
+import Header from "./components/Layout/Header.vue";
+import MainLayout from "./components/Layout/MainLayout.vue";
 
 export default defineComponent({
-  name: 'App',
-  components: {
-
-  },
-  setup() {
-
-    const hi = ref('')
-    return {}
-  },
+    name: "App",
+    components: {
+        Header,
+        MainLayout,
+    },
+    setup() {
+        const hi = ref("");
+        return {};
+    },
 });
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+body {
+    margin: 0;
 }
 </style>
