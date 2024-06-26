@@ -8,7 +8,7 @@ import { defineComponent } from "vue";
 export default defineComponent({});
 </script>
 
-<style>
+<style lang="scss" scoped>
 .baseLine {
     width: 100%;
     height: 1px;
@@ -16,4 +16,3 @@ export default defineComponent({});
     margin-bottom: 15px;
 }
 </style>
-@/types/baseTypes/BaseIcon@/types/baseTypes/IconStyles

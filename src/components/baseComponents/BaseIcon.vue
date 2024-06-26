@@ -52,7 +52,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="scss" scoped>
 .icon {
     width: 24px;
     height: 24px;

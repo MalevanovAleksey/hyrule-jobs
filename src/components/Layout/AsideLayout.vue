@@ -1,7 +1,9 @@
 <template>
     <!-- TODO сделать на слотах -->
     <aside>
-        <div class="aside-container">ASISEASISE</div>
+        <div class="aside-container">
+            <slot></slot>
+        </div>
     </aside>
 </template>
 
@@ -16,7 +18,5 @@ export default defineComponent({
 <style scoped lang="scss">
 .aside-container {
     width: 100%;
-    height: 200px; //Убрать
-    background-color: rgb(255, 147, 147);
 }
 </style>

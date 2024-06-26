@@ -2,17 +2,17 @@
     <main class="main">
         <BaseIcon class="main-logo" iconName="watermelon" :size="78" />
 
-        <h1>Weekly Planner</h1>
+        <h1 class="main-title">Weekly Planner</h1>
 
         <BaseLine />
         <BaseLine />
 
         <div class="todo-wrapper">
-            <AsideLayout />
+            <AsideLayout> <Calendar /> </AsideLayout>
 
             <TodoView />
 
-            <AsideLayout />
+            <AsideLayout> <WeeklyTodos /> </AsideLayout>
         </div>
     </main>
 </template>
@@ -23,6 +23,8 @@ import BaseIcon from "@/components/baseComponents/BaseIcon.vue";
 import BaseLine from "@/components/baseComponents/BaseLine.vue";
 import AsideLayout from "@/components/Layout/AsideLayout.vue";
 import TodoView from "@/components/Layout/TodoView.vue";
+import Calendar from "@/components/Calendar.vue";
+import WeeklyTodos from "@/components/WeeklyTodos.vue";
 
 export default defineComponent({
     components: {
@@ -30,6 +32,8 @@ export default defineComponent({
         BaseLine,
         AsideLayout,
         TodoView,
+        Calendar,
+        WeeklyTodos,
     },
 });
 </script>
@@ -40,8 +44,12 @@ export default defineComponent({
     margin: 0 auto;
     position: relative;
     &-logo {
-        position: relative;
-        bottom: 40px;
+        position: absolute;
+        top: -92px;
+    }
+
+    &-title {
+        margin-top: 50px;
     }
 
     .todo-wrapper {
