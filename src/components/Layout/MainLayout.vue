@@ -8,17 +8,21 @@
         <BaseLine />
 
         <div class="todo-wrapper">
-            <AsideLayout> <Calendar /> </AsideLayout>
+            <AsideLayout> <Calendar /> <ProgressBar /> </AsideLayout>
 
             <TodoView />
 
             <AsideLayout> <WeeklyTodos /> <BaseLine /> <TimeFocus /> </AsideLayout>
         </div>
+        <Weather />
+        <p>Count: {{ count }}</p>
+        <button @click="increment">Increment</button>
     </main>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
+import { mapActions, mapGetters, useStore } from "vuex";
 import BaseIcon from "@/components/baseComponents/BaseIcon.vue";
 import BaseLine from "@/components/baseComponents/BaseLine.vue";
 import AsideLayout from "@/components/Layout/AsideLayout.vue";
@@ -26,6 +30,8 @@ import TodoView from "@/components/Layout/TodoView.vue";
 import Calendar from "@/components/Calendar.vue";
 import WeeklyTodos from "@/components/WeeklyTodos.vue";
 import TimeFocus from "@/components/TimeFocus.vue";
+import ProgressBar from "@/components/ProgressBar.vue";
+import Weather from "@/components/Weather.vue";
 
 export default defineComponent({
     components: {
@@ -36,7 +42,32 @@ export default defineComponent({
         Calendar,
         WeeklyTodos,
         TimeFocus,
+        Weather,
+        ProgressBar,
     },
+    setup() {
+        const store = useStore();
+
+        const count = computed(() => store.getters.getCount);
+
+        const increment = () => {
+            store.dispatch("increment");
+        };
+
+        return {
+            count,
+            increment,
+        };
+    },
+    // computed: {
+    //     ...mapGetters(["getCount"]),
+    //     count() {
+    //         return this.getCount;
+    //     },
+    // },
+    // methods: {
+    //     ...mapActions(["increment"]),
+    // },
 });
 </script>
 
