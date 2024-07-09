@@ -15,8 +15,6 @@
             <AsideLayout> <WeeklyTodos /> <BaseLine /> <TimeFocus /> </AsideLayout>
         </div>
         <Weather />
-        <p>Count: {{ count }}</p>
-        <button @click="increment">Increment</button>
     </main>
 </template>
 
@@ -45,29 +43,6 @@ export default defineComponent({
         Weather,
         ProgressBar,
     },
-    setup() {
-        const store = useStore();
-
-        const count = computed(() => store.getters.getCount);
-
-        const increment = () => {
-            store.dispatch("increment");
-        };
-
-        return {
-            count,
-            increment,
-        };
-    },
-    // computed: {
-    //     ...mapGetters(["getCount"]),
-    //     count() {
-    //         return this.getCount;
-    //     },
-    // },
-    // methods: {
-    //     ...mapActions(["increment"]),
-    // },
 });
 </script>
 

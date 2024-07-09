@@ -8,34 +8,38 @@
 import { computed, defineComponent } from "vue";
 import TodoCardView from "@/components/TodoCardView.vue";
 import DayOfWeek from "@/types/baseTypes/DayOfWeek";
+import { mapActions, mapGetters } from "vuex";
+import store from "@/store";
+import TodoItem from "@/types/TodoItem";
 
 export default defineComponent({
     components: { TodoCardView },
     setup() {
+        const todoItems = computed(() => store.state.todoItems);
+
         const dayOfWeek = computed(() => {
             return Object.values(DayOfWeek).map((value, i) => ({
                 title: value,
                 id: i,
-                todoItems: [
-                    {
-                        id: i,
-                        title: "Todo1",
-                        complited: false,
-                    },
-                    {
-                        id: i + 1,
-                        title: "Todo2",
-                        complited: false,
-                    },
-                    {
-                        id: i + 3,
-                        title: "Todo3",
-                        complited: false,
-                    },
-                ],
+                todoItems: todoItems.value.filter((item) => item.dayType === value) as TodoItem[],
             }));
         });
+
         return { dayOfWeek };
+    },
+
+    // computed: {
+    //     ...mapGetters(["todoItems"]),
+    //     count() {
+    //         return this.todoItems;
+    //     },
+    // },
+    methods: {
+        ...mapActions(["fetchTodoItems"]),
+    },
+
+    mounted() {
+        this.fetchTodoItems();
     },
 });
 </script>
