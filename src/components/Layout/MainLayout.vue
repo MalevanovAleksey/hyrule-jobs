@@ -12,7 +12,7 @@
 
             <TodoView />
 
-            <AsideLayout> <WeeklyTodos /> </AsideLayout>
+            <AsideLayout> <WeeklyTodos /> <BaseLine /> <TimeFocus /> </AsideLayout>
         </div>
     </main>
 </template>
@@ -25,6 +25,7 @@ import AsideLayout from "@/components/Layout/AsideLayout.vue";
 import TodoView from "@/components/Layout/TodoView.vue";
 import Calendar from "@/components/Calendar.vue";
 import WeeklyTodos from "@/components/WeeklyTodos.vue";
+import TimeFocus from "@/components/TimeFocus.vue";
 
 export default defineComponent({
     components: {
@@ -34,6 +35,7 @@ export default defineComponent({
         TodoView,
         Calendar,
         WeeklyTodos,
+        TimeFocus,
     },
 });
 </script>

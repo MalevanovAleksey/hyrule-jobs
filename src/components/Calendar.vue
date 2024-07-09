@@ -1,13 +1,14 @@
 <template>
     <div class="calendar-container">
         <div class="calendar-wrapper hour">
-            <div class="white_line"></div>
+            <!-- <div class="white_line"></div> -->
             {{ hours }}
         </div>
         <div class="calendar-wrapper minutes">
-            <div class="white_line"></div>
+            <!-- <div class="white_line"></div> -->
             {{ minutes }}
             <span class="calendar-day_name">{{ dayName }}</span>
+            
         </div>
     </div>
 </template>
@@ -64,7 +65,7 @@ export default defineComponent({
 
     &-container {
         display: flex;
-        padding: 4px 4px 40px 4px;
+        padding: 4px;
         background-color: black;
         border-radius: 5px;
     }

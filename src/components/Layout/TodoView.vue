@@ -1,20 +1,51 @@
 <template>
-    <div class="todo-view-container">ту ду контаинер</div>
+    <div class="todo-view-container">
+        <TodoCardView v-for="day in dayOfWeek" :key="day.id" :item="day" />
+    </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
+import TodoCardView from "@/components/TodoCardView.vue";
+import DayOfWeek from "@/types/baseTypes/DayOfWeek";
 
 export default defineComponent({
-    components: {},
+    components: { TodoCardView },
+    setup() {
+        const dayOfWeek = computed(() => {
+            return Object.values(DayOfWeek).map((value, i) => ({
+                title: value,
+                id: i,
+                todoItems: [
+                    {
+                        id: i,
+                        title: "Todo1",
+                        complited: false,
+                    },
+                    {
+                        id: i + 1,
+                        title: "Todo2",
+                        complited: false,
+                    },
+                    {
+                        id: i + 3,
+                        title: "Todo3",
+                        complited: false,
+                    },
+                ],
+            }));
+        });
+        return { dayOfWeek };
+    },
 });
 </script>
 
 <style scoped lang="scss">
 .todo-view-container {
     width: 100%;
-    height: 200px;
-    background-color: #6c4b4b;
     margin: 0 45px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 </style>

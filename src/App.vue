@@ -29,5 +29,6 @@ export default defineComponent({
 }
 body {
     margin: 0;
+    min-height: 10000px;
 }
 </style>
