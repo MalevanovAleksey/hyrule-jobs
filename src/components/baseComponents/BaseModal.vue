@@ -82,7 +82,7 @@ export default defineComponent({
         watch(
             () => props.item,
             (val) => {
-                inputValue.value = val?.title;
+                inputValue.value = val?.title || "";
             },
             { immediate: true }
         );
