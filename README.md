@@ -1,24 +1,3 @@
-# hyrule-jobs
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Разработан небольшой todo - list в рамках изучения vue3. Значения мокал из расширения tweak, поэтому при запуске проекта упадут ошибки.
+Элементы тудушки можно добавлять, удалять и изменять
+Хранилище использовалось vuex, для того, чтобы посмотреть как будет работать composition API с vuex.
